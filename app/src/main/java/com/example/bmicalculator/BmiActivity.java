@@ -1,5 +1,7 @@
 package com.example.bmicalculator;
 
+        import static com.example.bmicalculator.BmiCalculator.calculateBMI;
+
         import androidx.appcompat.app.AppCompatActivity;
 
         import android.content.Intent;
@@ -31,7 +33,10 @@ public class BmiActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateBMI();
+                float weight = Float.parseFloat(weightInput.getText().toString());
+                float height = Float.parseFloat(heightInput.getText().toString());
+                float bmi = calculateBMI(weight, height);
+                bmiOutput.setText(String.format("Your BMI is: %.2f",bmi));
             }
         });
 
@@ -42,17 +47,6 @@ public class BmiActivity extends AppCompatActivity {
                 startActivity(returnIntent);
             }
         });
-    }
-
-    private void calculateBMI(){
-        float weight = Float.parseFloat(weightInput.getText().toString());
-        float height = Float.parseFloat(heightInput.getText().toString());
-        height = height/100;
-        float BMI;
-
-        BMI = weight/(height*height);
-
-        bmiOutput.setText(String.format("Your BMI is: %.2f", BMI));
     }
 
 }

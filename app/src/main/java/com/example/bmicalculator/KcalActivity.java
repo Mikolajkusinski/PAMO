@@ -1,5 +1,8 @@
 package com.example.bmicalculator;
 
+import static com.example.bmicalculator.BmiCalculator.calculateBMI;
+import static com.example.bmicalculator.BmrCalculator.calculateBMR;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -61,26 +64,16 @@ public class KcalActivity extends AppCompatActivity {
         });
 
         button.setOnClickListener(new View.OnClickListener() {
+            double weight = Double.parseDouble(weightInput.getText().toString());
+            double height = Double.parseDouble(heightInput.getText().toString());
+            double age = Double.parseDouble(ageInput.getText().toString());
             @Override
             public void onClick(View v) {
-                calculateBMR();
+                double bmr = calculateBMR(weight, height,age,gender);
+                kcalOutput.setText(String.format("Your BMR is: %.2f",bmr));
             }
         });
     }
 
-    private void calculateBMR(){
-        double bmr;
-        double weight = Double.parseDouble(weightInput.getText().toString());
-        double height = Double.parseDouble(heightInput.getText().toString());
-        double age = Double.parseDouble(ageInput.getText().toString());
-
-        if (gender.equals("male")){
-            bmr = 66.47 + (13.7 * weight) + (5 * height) - (6.76 * age);
-            kcalOutput.setText(String.format("Your BMR is: %.2f", bmr));
-        } else if (gender.equals("female")){
-            bmr = 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
-            kcalOutput.setText(String.format("Your BMR is: %.2f", bmr));
-        }
-    }
-
 }
+
