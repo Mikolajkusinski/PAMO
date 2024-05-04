@@ -42,6 +42,7 @@
                         android:background="#ECECEC"
                         android:orientation="vertical">
 
+
                         <TextView
                             android:id="@+id/recepie_title"
                             android:layout_width="match_parent"
@@ -91,7 +92,9 @@
                                     android:layout_weight="1"
                                     android:adjustViewBounds="true"
                                     tools:srcCompat="@drawable/pancake3" />
+
                             </LinearLayout>
+
                         </HorizontalScrollView>
 
                         <View
@@ -109,6 +112,13 @@
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/goToShoppingList1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add to Shopping List"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"/>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/recepieCard2"
@@ -187,6 +197,13 @@
                             android:textSize="13sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/goToShoppingList2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add to Shopping List"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"/>
             </LinearLayout>
         </ScrollView>
 
